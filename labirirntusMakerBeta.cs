@@ -31,6 +31,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
 			Console.WriteLine("1. pálya szerkeztése");
 			Console.WriteLine("2. pálya mentése");
+			Console.WriteLine("3. pálya betöltése");
 			Console.WriteLine();
 			Console.WriteLine("Válasszon ki egy menü pontot");
 
@@ -48,6 +49,14 @@ namespace MyApp // Note: actual namespace depends on the project name.
 			{
 				mentes(palyaKeszites(szam,szam2));
 			}
+			
+			else if (bekeres == 3)
+			{
+				Console.WriteLine("adja meg a mentett pálya nevét: ");
+				string nev = Console.ReadLine();
+				szerkeztes(betoltes(nev), falak);
+			}
+			
 		}
 
 		static char[,] palyaKeszites(int sorokSzama, int sozlopokSzama)
@@ -91,17 +100,21 @@ namespace MyApp // Note: actual namespace depends on the project name.
 					Console.WriteLine();
 				}
 				Console.ForegroundColor= ConsoleColor.DarkYellow;
-				Console.WriteLine("Ha elszertné menteni a pályát akkor csak nyomjon ENTERT!");
-				Console.WriteLine("Ha minden objektumot ki szeretne törölni a pályáról, akkor írha be hogy 'ures'");
+				Console.WriteLine("Ha elszertné menteni a pályát akkor csak nyomjon egy ENTER-t!");
+				Console.WriteLine("Ha minden objektumot ki szeretne törölni a pályáról, akkor írja be hogy 'ures'");
 				Console.WriteLine("Ha karaktert szeretne törölin akkor a kordináták után rakjon egy 't betűt' kettős ponttal elválasztva (pl: 2:3:t)");
 				Console.ForegroundColor = ConsoleColor.White;
 				Console.WriteLine("Adjon meg egy kordinátát ahova a falakat, vagy egy szobát szeretné rakni (pl: 2:3): ");
 				bekeres = Console.ReadLine();
-				string[] valami = bekeres.Split(":");
 
-				int xKord = Convert.ToInt32(valami[0]);
-				int yKord = Convert.ToInt32(valami[1]);
-				if (bekeres == "ures")
+
+				if (bekeres == "")
+				{
+					mentes(palya);
+					break;
+				}
+
+				else if (bekeres == "ures")
 				{
 					Console.Clear();
 					for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
@@ -122,74 +135,70 @@ namespace MyApp // Note: actual namespace depends on the project name.
 					}
 				}
 
-				else if (bekeres == "")
+				else if (bekeres.Contains(':'))
 				{
-					Console.WriteLine("Adja mege a fájl mentési nevét: ");
-					string nev = Console.ReadLine();
 
-					string[] sorok = new string[palya.GetLength(0)];
 
-					for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
+
+					string[] valami = bekeres.Split(":");
+
+					int xKord = Convert.ToInt32(valami[0]);
+					int yKord = Convert.ToInt32(valami[1]);
+
+
+					if (bekeres.Contains('t'))
 					{
-						for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
-						{
-							sorok[sorIndex] += palya[sorIndex, oszlopIndex];
-						}
-					}
-					File.WriteAllLines(nev, sorok);
-					break;
-				}
-
-			
-
-				else if (bekeres.Contains(':') && bekeres.Contains('t') == false)
-				{
-					
-					Console.WriteLine();
-					Console.WriteLine("A melyik karaktert szeretné használni: (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█'");
-					int falSzam = Convert.ToInt32(Console.ReadLine());
-
-					Console.Clear();
-
-
-					if (falSzam < 0 || falSzam > 11)
-					{
-						Console.WriteLine("Nincs ilyen számú fal");
+						palya[xKord - 1, yKord - 1] = JEL;
 					}
 
 					else
 					{
-						palya[xKord - 1, yKord - 1] = lista[falSzam];
-					}
-
-
-					for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
-					{
-						for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
-						{
-							Console.Write(palya[sorIndex, oszlopIndex] + "");
-						}
 						Console.WriteLine();
-					}
+						Console.WriteLine("A melyik karaktert szeretné használni: (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█'");
+						int falSzam = Convert.ToInt32(Console.ReadLine());
+
+						Console.Clear();
 
 
-					Console.ReadKey();
-					Console.Clear();
-					for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
-					{
-						for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
+						if (falSzam < 0 || falSzam > 11)
 						{
-							Console.Write(palya[sorIndex, oszlopIndex] + "");
+							Console.WriteLine("Nincs ilyen számú fal");
 						}
-						Console.WriteLine();
+
+						else if (falSzam >= 0 && falSzam <= 11)
+						{
+							palya[xKord - 1, yKord - 1] = lista[falSzam];
+						}
+
+
+
+
+						for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
+						{
+							for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
+							{
+								Console.Write(palya[sorIndex, oszlopIndex] + "");
+							}
+							Console.WriteLine();
+						}
+
+
+						Console.ReadKey();
+						Console.Clear();
+						for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
+						{
+							for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
+							{
+								Console.Write(palya[sorIndex, oszlopIndex] + "");
+							}
+							Console.WriteLine();
+						}
+
+
 					}
-				}
+
 				
-				else if (bekeres.Contains('t'))
-				{
-					palya[xKord-1, yKord-1] = JEL;
 				}
-				
 				else if (bekeres != "ures" || bekeres != "" || bekeres.Contains(':') == false || bekeres.Contains('t') == false)
 				{
 					Console.WriteLine("Hiba");
@@ -197,7 +206,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 					Console.Clear();
 				}
 
-				
+
 			}
 			return palya;
 		}
@@ -219,6 +228,29 @@ namespace MyApp // Note: actual namespace depends on the project name.
 			File.WriteAllLines(nev, sorok);
 		}
 
+
+		static char[,] betoltes(string palyaNeve)
+		{
+			string[] sorok = File.ReadAllLines(palyaNeve);
+			char[,] palya = new char[sorok.Length, sorok[0].Length];
+			for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
+			{
+				for (int oszlopIndexe = 0; oszlopIndexe < palya.GetLength(1); oszlopIndexe++)
+				{
+					palya[sorIndex, oszlopIndexe] = sorok[sorIndex][oszlopIndexe];
+				}
+			}
+
+			for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
+			{
+				for (int oszlopIndexe = 0; oszlopIndexe < palya.GetLength(1); oszlopIndexe++)
+				{
+					Console.Write(palya[sorIndex,oszlopIndexe]+"");
+				}
+				Console.WriteLine();
+			}
+			return palya;
+		}
 
 
 	}
