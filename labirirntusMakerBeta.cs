@@ -93,10 +93,14 @@ namespace MyApp // Note: actual namespace depends on the project name.
 				Console.ForegroundColor= ConsoleColor.DarkYellow;
 				Console.WriteLine("Ha elszertné menteni a pályát akkor csak nyomjon ENTERT!");
 				Console.WriteLine("Ha minden objektumot ki szeretne törölni a pályáról, akkor írha be hogy 'ures'");
+				Console.WriteLine("Ha karaktert szeretne törölin akkor a kordináták után rakjon egy 't betűt' kettős ponttal elválasztva (pl: 2:3:t)");
 				Console.ForegroundColor = ConsoleColor.White;
 				Console.WriteLine("Adjon meg egy kordinátát ahova a falakat, vagy egy szobát szeretné rakni (pl: 2:3): ");
 				bekeres = Console.ReadLine();
+				string[] valami = bekeres.Split(":");
 
+				int xKord = Convert.ToInt32(valami[0]);
+				int yKord = Convert.ToInt32(valami[1]);
 				if (bekeres == "ures")
 				{
 					Console.Clear();
@@ -136,11 +140,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
 					break;
 				}
 
-				else if (bekeres.Contains(':'))
+			
+
+				else if (bekeres.Contains(':') && bekeres.Contains('t') == false)
 				{
-					string[] valami = bekeres.Split(":");
-					int xKord = Convert.ToInt32(valami[0]);
-					int yKord = Convert.ToInt32(valami[1]);
+					
 					Console.WriteLine();
 					Console.WriteLine("A melyik karaktert szeretné használni: (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█'");
 					int falSzam = Convert.ToInt32(Console.ReadLine());
@@ -180,8 +184,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
 						Console.WriteLine();
 					}
 				}
-
-				else if (bekeres != "ures" || bekeres != "" || bekeres.Contains(':') == false)
+				
+				else if (bekeres.Contains('t'))
+				{
+					palya[xKord-1, yKord-1] = JEL;
+				}
+				
+				else if (bekeres != "ures" || bekeres != "" || bekeres.Contains(':') == false || bekeres.Contains('t') == false)
 				{
 					Console.WriteLine("Hiba");
 					Console.ReadKey();
@@ -209,6 +218,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
 			}
 			File.WriteAllLines(nev, sorok);
 		}
+
+
 
 	}
 }
