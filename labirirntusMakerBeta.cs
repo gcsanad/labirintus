@@ -11,8 +11,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
 		static void Main(string[] args)
 		{
-
-			Random rnd = new Random();
 			menu();
 		}
 
@@ -28,16 +26,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
 				}
 			}
 
-			
-			for (int sorIndex = 0; sorIndex < matrix.GetLength(0); sorIndex++)
-			{
-				for (int oszlopIndex = 0; oszlopIndex < matrix.GetLength(1); oszlopIndex++)
-				{
-					Console.Write(matrix[sorIndex, oszlopIndex] + "");
-				}
-				Console.WriteLine();
-			}
-			
+			Kiirat(matrix);
+
 
 			return matrix;
 		}
@@ -48,14 +38,10 @@ namespace MyApp // Note: actual namespace depends on the project name.
 			while (true)
 			{
 				Console.Clear();
-				for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
-				{
-					for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
-					{
-						Console.Write(palya[sorIndex, oszlopIndex]);
-					}
-					Console.WriteLine();
-				}
+
+				Kiirat(palya);
+
+
 				Console.ForegroundColor= ConsoleColor.DarkYellow;
 				Console.WriteLine("Ha elszertné menteni a pályát akkor csak nyomjon egy ENTER-t!");
 				Console.WriteLine("Ha minden objektumot ki szeretne törölni a pályáról, akkor írja be hogy 'ures'");
@@ -89,14 +75,10 @@ namespace MyApp // Note: actual namespace depends on the project name.
 						}
 					}
 
-					for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
-					{
-						for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
-						{
-							Console.Write(palya[sorIndex,oszlopIndex]);
-						}
-						Console.WriteLine();
-					}
+
+					Kiirat(palya);
+
+
 				}
 
 				else if (bekeres.Contains(':'))
@@ -114,9 +96,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
 					{
 						palya[xKord - 1, yKord - 1] = JEL;
 					}
-
-				
-
 
 					else
 					{
@@ -137,29 +116,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
 							palya[xKord - 1, yKord - 1] = lista[falSzam];
 						}
 
-
-
-
-						for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
-						{
-							for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
-							{
-								Console.Write(palya[sorIndex, oszlopIndex] + "");
-							}
-							Console.WriteLine();
-						}
-
+						Kiirat(palya);
 
 						Console.ReadKey();
 						Console.Clear();
-						for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
-						{
-							for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
-							{
-								Console.Write(palya[sorIndex, oszlopIndex] + "");
-							}
-							Console.WriteLine();
-						}
+						Kiirat(palya);
 
 
 					}
@@ -172,10 +133,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
 					Console.ReadKey();
 					Console.Clear();
 				}
-
-
 			}
-			return palya;
+			//return palya; 
 		}
 
 		static void mentes(char[,] mentesPalya)
@@ -208,14 +167,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
 				}
 			}
 
-			for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
-			{
-				for (int oszlopIndexe = 0; oszlopIndexe < palya.GetLength(1); oszlopIndexe++)
-				{
-					Console.Write(palya[sorIndex,oszlopIndexe]+"");
-				}
-				Console.WriteLine();
-			}
+			Kiirat(palya);
+
+
 			return palya;
 		}
 
@@ -262,6 +216,73 @@ namespace MyApp // Note: actual namespace depends on the project name.
 				szerkeztes(betoltes(nev), falak);
 			}
 		}
+
+		
+		static void Kiirat(char[,] palya)
+		{
+			for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
+			{
+				for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
+				{
+					Console.Write(palya[sorIndex, oszlopIndex] + "");
+				}
+				Console.WriteLine();
+			}
+		}
+
+		static void teszt(char[,] palya)
+		{
+			Console.Clear();
+			Console.BackgroundColor = ConsoleColor.Gray;
+			Console.ForegroundColor = ConsoleColor.Black;
+			Console.Write(' ');
+			for (int oszlopIndex = 1; oszlopIndex <= palya.GetLength(1); oszlopIndex++)
+			{
+				/*
+				if (oszlopIndex % 10 == 0)
+				{
+					Console.Write('.');
+				}
+
+				else
+				{
+					Console.Write(oszlopIndex % 10);
+				}
+				*/
+				Console.Write(oszlopIndex % 10);
+			}
+
+			Console.WriteLine();
+			for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
+			{
+				Console.BackgroundColor = ConsoleColor.Gray;
+				Console.ForegroundColor = ConsoleColor.Black;
+				/*
+				if ((sorIndex + 1) % 10 == 0)
+				{
+					Console.Write('.');
+				}
+
+				else
+				{
+					Console.Write((sorIndex + 1) % 10);
+				}
+				*/
+				Console.Write((sorIndex + 1) % 10);
+
+				Console.BackgroundColor = ConsoleColor.Black;
+				Console.ForegroundColor = ConsoleColor.White;
+
+				for (int oszlopIndexe = 0; oszlopIndexe < palya.GetLength(1); oszlopIndexe++)
+				{
+					Console.Write(palya[sorIndex, oszlopIndexe]);
+				}
+				Console.WriteLine();
+			}
+			Console.BackgroundColor = ConsoleColor.Black;
+			Console.ForegroundColor = ConsoleColor.Gray;
+		}
+
 
 	}
 }
