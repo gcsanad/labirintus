@@ -2,7 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 
-namespace MyApp // Note: actual namespace depends on the project name.
+namespace MyApp
 {
 	class Program
 	{
@@ -34,7 +34,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
 		static char[,] szerkeztes(char[,] palya, List<char> lista)
 		{
-			string bekeres = "";
 			while (true)
 			{
 				Console.Clear();
@@ -49,7 +48,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 				Console.WriteLine("Ha vissza szertene menni a menu akkro írja be hogy 'menu'");
 				Console.ForegroundColor = ConsoleColor.White;
 				Console.WriteLine("Adjon meg egy kordinátát ahova a falakat, vagy egy szobát szeretné rakni (pl: 2:3): ");
-				bekeres = Console.ReadLine();
+				string bekeres = Console.ReadLine();
 
 
 				if (bekeres == "")
@@ -74,11 +73,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 							palya[sorIndex, oszlopIndex] = JEL;
 						}
 					}
-
-
 					Kiirat(palya);
-
-
 				}
 
 				else if (bekeres.Contains(':'))
@@ -106,7 +101,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 						Console.Clear();
 
 
-						if (falSzam < 0 || falSzam > 11)
+						if (falSzam < 0 || falSzam > lista.Count)
 						{
 							Console.WriteLine("Nincs ilyen számú fal");
 						}
@@ -115,14 +110,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
 						{
 							palya[xKord - 1, yKord - 1] = lista[falSzam];
 						}
-
-						Kiirat(palya);
-
-						Console.ReadKey();
-						Console.Clear();
-						Kiirat(palya);
-
-
 					}
 
 				
@@ -177,11 +164,10 @@ namespace MyApp // Note: actual namespace depends on the project name.
 		static void menu()
 		{
 			List<char> falak = new List<char>() { '╬', '═', '╦', '╩', '║', '╣', '╠', '╗', '╝', '╚', '╔', '█' };
-			int szam = 0;
-			int szam2 = 0;
+
 			Console.WriteLine("1. pálya létrehozása");
-			Console.WriteLine("2. pálya mentése");
-			Console.WriteLine("3. pálya betöltése");
+			Console.WriteLine("2. pálya betöltése");
+			Console.WriteLine("3. kilépés a programból");
 			Console.WriteLine();
 			Console.WriteLine("Válasszon ki egy menü pontot");
 
@@ -197,8 +183,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
 				string[] ok = kordinata.Split(":");
 
 
-				szam = Convert.ToInt32(ok[0]);
-				szam2 = Convert.ToInt32(ok[1]);
+				int szam = Convert.ToInt32(ok[0]);
+				int szam2 = Convert.ToInt32(ok[1]);
 
 				szerkeztes(palyaKeszites(szam, szam2), falak);
 			}
@@ -206,14 +192,14 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
 			else if (bekeres == 2)
 			{
-				mentes(palyaKeszites(szam, szam2));
+				Console.WriteLine("Adja meg a mentett pálya nevét: ");
+				string nev = Console.ReadLine();
+				szerkeztes(betoltes(nev), falak);
 			}
 
 			else if (bekeres == 3)
 			{
-				Console.WriteLine("Adja meg a mentett pálya nevét: ");
-				string nev = Console.ReadLine();
-				szerkeztes(betoltes(nev), falak);
+				Environment.Exit(0);
 			}
 		}
 
@@ -229,60 +215,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
 				Console.WriteLine();
 			}
 		}
-
-		static void teszt(char[,] palya)
-		{
-			Console.Clear();
-			Console.BackgroundColor = ConsoleColor.Gray;
-			Console.ForegroundColor = ConsoleColor.Black;
-			Console.Write(' ');
-			for (int oszlopIndex = 1; oszlopIndex <= palya.GetLength(1); oszlopIndex++)
-			{
-				/*
-				if (oszlopIndex % 10 == 0)
-				{
-					Console.Write('.');
-				}
-
-				else
-				{
-					Console.Write(oszlopIndex % 10);
-				}
-				*/
-				Console.Write(oszlopIndex % 10);
-			}
-
-			Console.WriteLine();
-			for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
-			{
-				Console.BackgroundColor = ConsoleColor.Gray;
-				Console.ForegroundColor = ConsoleColor.Black;
-				/*
-				if ((sorIndex + 1) % 10 == 0)
-				{
-					Console.Write('.');
-				}
-
-				else
-				{
-					Console.Write((sorIndex + 1) % 10);
-				}
-				*/
-				Console.Write((sorIndex + 1) % 10);
-
-				Console.BackgroundColor = ConsoleColor.Black;
-				Console.ForegroundColor = ConsoleColor.White;
-
-				for (int oszlopIndexe = 0; oszlopIndexe < palya.GetLength(1); oszlopIndexe++)
-				{
-					Console.Write(palya[sorIndex, oszlopIndexe]);
-				}
-				Console.WriteLine();
-			}
-			Console.BackgroundColor = ConsoleColor.Black;
-			Console.ForegroundColor = ConsoleColor.Gray;
-		}
-
 
 	}
 }
