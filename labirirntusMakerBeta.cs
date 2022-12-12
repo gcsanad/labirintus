@@ -54,6 +54,7 @@ namespace MyApp
 				if (bekeres == "")
 				{
 					mentes(palya);
+
 					continue;
 				}
 
@@ -95,7 +96,7 @@ namespace MyApp
 					else
 					{
 						Console.WriteLine();
-						Console.WriteLine("A melyik karaktert szeretné használni: (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█'");
+						Console.WriteLine("Melyik karaktert szeretné használni: (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falSzam = Convert.ToInt32(Console.ReadLine());
 
 						Console.Clear();
@@ -106,11 +107,14 @@ namespace MyApp
 							Console.WriteLine("Nincs ilyen számú fal");
 						}
 
-						else if (falSzam >= 0 && falSzam <= 11)
+						else if (falSzam >= 0 && falSzam <= lista.Count)
 						{
 							palya[xKord - 1, yKord - 1] = lista[falSzam];
 						}
 					}
+
+
+
 
 				
 				}
@@ -141,7 +145,6 @@ namespace MyApp
 			File.WriteAllLines(nev, sorok);
 		}
 
-
 		static char[,] betoltes(string palyaNeve)
 		{
 			string[] sorok = File.ReadAllLines(palyaNeve);
@@ -160,10 +163,9 @@ namespace MyApp
 			return palya;
 		}
 
-
 		static void menu()
 		{
-			List<char> falak = new List<char>() { '╬', '═', '╦', '╩', '║', '╣', '╠', '╗', '╝', '╚', '╔', '█' };
+			List<char> falak = new List<char>() { '╬', '═', '╦', '╩', '║', '╣', '╠', '╗', '╝', '╚', '╔', '█', '▄', '♣', '♂', '♀', '♫', '☼', '↓', '→', '↑', '▼'};
 
 			Console.WriteLine("1. pálya létrehozása");
 			Console.WriteLine("2. pálya betöltése");
@@ -202,7 +204,6 @@ namespace MyApp
 				Environment.Exit(0);
 			}
 		}
-
 		
 		static void Kiirat(char[,] palya)
 		{
@@ -215,6 +216,5 @@ namespace MyApp
 				Console.WriteLine();
 			}
 		}
-
 	}
 }
