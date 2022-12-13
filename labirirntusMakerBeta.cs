@@ -14,9 +14,9 @@ namespace MyApp
 			menu();
 		}
 
-		static char[,] palyaKeszites(int sorokSzama, int sozlopokSzama)
+		static char[,] palyaKeszites(int sorokSzama, int oszlopokSzama)
 		{
-			char[,] matrix = new char[sorokSzama, sozlopokSzama];
+			char[,] matrix = new char[sorokSzama, oszlopokSzama];
 
 			for (int sorIndex = 0; sorIndex < matrix.GetLength(0); sorIndex++)
 			{
@@ -27,8 +27,6 @@ namespace MyApp
 			}
 
 			Kiirat(matrix);
-
-
 			return matrix;
 		}
 
@@ -46,6 +44,7 @@ namespace MyApp
 				Console.WriteLine("Ha minden objektumot ki szeretne törölni a pályáról, akkor írja be hogy 'ures'");
 				Console.WriteLine("Ha karaktert szeretne törölin akkor a kordináták után rakjon egy 't betűt' kettős ponttal elválasztva (pl: 2:3:t)");
 				Console.WriteLine("Ha vissza szertene menni a menu akkro írja be hogy 'menu'");
+				Console.WriteLine("Ha többetakran lerakni az adott falból akkor a kordináta után írjon egy égtáj kezdőbetűjét (pl: 2:3:n, 2:3:e, 2:3:s, 2:3:w)");
 				Console.ForegroundColor = ConsoleColor.White;
 				Console.WriteLine("Adjon meg egy kordinátát ahova a falakat, vagy egy szobát szeretné rakni (pl: 2:3): ");
 				string bekeres = Console.ReadLine();
@@ -82,7 +81,7 @@ namespace MyApp
 
 
 
-					string[] valami = bekeres.Split(":");
+					string[] valami = bekeres.Split(':');
 
 					int xKord = Convert.ToInt32(valami[0]);
 					int yKord = Convert.ToInt32(valami[1]);
@@ -93,6 +92,81 @@ namespace MyApp
 						palya[xKord - 1, yKord - 1] = JEL;
 					}
 
+					else if (bekeres.Contains('n'))
+					{
+						Console.WriteLine("Mennyit szeretne lerakni: ");
+						int darab = Convert.ToInt32(Console.ReadLine());
+						Console.WriteLine("Melyik karaktert szeretné használni: (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						int falszam1 = Convert.ToInt32(Console.ReadLine());
+
+						for (int i = 0; i < darab; i++)
+						{
+							palya[xKord - 1, yKord - 1] = lista[falszam1];
+							xKord--;
+						}
+
+					}
+
+					else if (bekeres.Contains('e'))
+					{
+						Console.WriteLine("Mennyit szeretne lerakni: ");
+						int darab = Convert.ToInt32(Console.ReadLine());
+						Console.WriteLine("Melyik karaktert szeretné használni: (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						int falszam1 = Convert.ToInt32(Console.ReadLine());
+
+						for (int i = 0; i < darab; i++)
+						{
+							palya[xKord - 1, yKord - 1] = lista[falszam1];
+							yKord++;
+						}
+
+					}
+
+					else if (bekeres.Contains('w'))
+					{
+						Console.WriteLine("Mennyit szeretne lerakni: ");
+						int darab = Convert.ToInt32(Console.ReadLine());
+						Console.WriteLine("Melyik karaktert szeretné használni: (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						int falszam1 = Convert.ToInt32(Console.ReadLine());
+
+						for (int i = 0; i < darab; i++)
+						{
+							palya[xKord - 1, yKord - 1] = lista[falszam1];
+							yKord--;
+						}
+
+					}
+
+					else if (bekeres.Contains('s'))
+					{
+						Console.WriteLine("Mennyit szeretne lerakni: ");
+						int darab = Convert.ToInt32(Console.ReadLine());
+						Console.WriteLine("Melyik karaktert szeretné használni: (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						int falszam1 = Convert.ToInt32(Console.ReadLine());
+
+						for (int i = 0; i < darab; i++)
+						{
+							palya[xKord - 1, yKord - 1] = lista[falszam1];
+							xKord++;
+						}
+
+					}
+
+
+					else if (bekeres.Contains('w'))
+					{
+						Console.WriteLine("Mennyit szeretne lerakni: ");
+						int darab = Convert.ToInt32(Console.ReadLine());
+						Console.WriteLine("Melyik karaktert szeretné használni: (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						int falszam1 = Convert.ToInt32(Console.ReadLine());
+
+						for (int i = 0; i < darab; i++)
+						{
+							palya[xKord - 1, yKord - 1] = lista[falszam1];
+							xKord--;
+						}
+
+					}
 					else
 					{
 						Console.WriteLine();
@@ -112,10 +186,6 @@ namespace MyApp
 							palya[xKord - 1, yKord - 1] = lista[falSzam];
 						}
 					}
-
-
-
-
 				
 				}
 				else if (bekeres != "ures" || bekeres != "" || bekeres.Contains(':') == false || bekeres.Contains('t') == false)
@@ -180,8 +250,8 @@ namespace MyApp
 			if (bekeres == 1)
 			{
 				Console.WriteLine("Adjon meg a mátrix méretét (pl: '2:3'): ");
+				
 				string kordinata = Console.ReadLine();
-
 				string[] ok = kordinata.Split(":");
 
 
