@@ -7,7 +7,7 @@ namespace MyApp
 	class Program
 	{
 		const char JEL = '.';
-
+		
 
 		static void Main(string[] args)
 		{
@@ -45,6 +45,7 @@ namespace MyApp
 				Console.WriteLine("Ha karaktert szeretne törölin akkor a kordináták után rakjon egy 't betűt' kettős ponttal elválasztva (pl: 2:3:t)");
 				Console.WriteLine("Ha vissza szertene menni a menu akkro írja be hogy 'menu'");
 				Console.WriteLine("Ha többetakran lerakni az adott falból akkor a kordináta után írjon egy égtáj kezdőbetűjét (pl: 2:3:n, 2:3:e, 2:3:s, 2:3:w)");
+
 				Console.ForegroundColor = ConsoleColor.White;
 				Console.WriteLine("Adjon meg egy kordinátát ahova a falakat, vagy egy szobát szeretné rakni (pl: 2:3): ");
 				string bekeres = Console.ReadLine();
@@ -167,6 +168,15 @@ namespace MyApp
 						}
 
 					}
+					else if (bekeres.Contains(':'))
+					{
+						if (bekeres.Contains('w') == false || bekeres.Contains('e') == false || bekeres.Contains('s') == false || bekeres.Contains('n') == false || bekeres.Contains('t') == false)
+						{
+							Console.WriteLine("Hiba");
+							Console.ReadKey();
+							Console.Clear();
+						}
+					}
 					else
 					{
 						Console.WriteLine();
@@ -188,8 +198,9 @@ namespace MyApp
 					}
 				
 				}
-				else if (bekeres != "ures" || bekeres != "" || bekeres.Contains(':') == false || bekeres.Contains('t') == false)
+				else if (bekeres != "ures" || bekeres != "" || bekeres.Contains(':') == false)
 				{
+				
 					Console.WriteLine("Hiba");
 					Console.ReadKey();
 					Console.Clear();
@@ -235,6 +246,8 @@ namespace MyApp
 
 		static void menu()
 		{
+			
+
 			List<char> falak = new List<char>() { '╬', '═', '╦', '╩', '║', '╣', '╠', '╗', '╝', '╚', '╔', '█', '▄', '♣', '♂', '♀', '♫', '☼', '↓', '→', '↑', '▼'};
 
 			Console.WriteLine("1. pálya létrehozása");
@@ -245,7 +258,7 @@ namespace MyApp
 
 			int bekeres = Convert.ToInt32(Console.ReadLine());
 
-
+			
 
 			if (bekeres == 1)
 			{
@@ -259,6 +272,7 @@ namespace MyApp
 				int szam2 = Convert.ToInt32(ok[1]);
 
 				szerkeztes(palyaKeszites(szam, szam2), falak);
+
 			}
 
 
@@ -273,6 +287,7 @@ namespace MyApp
 			{
 				Environment.Exit(0);
 			}
+
 		}
 		
 		static void Kiirat(char[,] palya)
