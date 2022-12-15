@@ -2,16 +2,24 @@
 using System.IO;
 using System.Collections.Generic;
 
-namespace MyApp
+namespace ConsoleApp1
 {
 	class Program
 	{
 		const char JEL = '.';
 		
+		const string MAGYAR_SZOVEG = "Ha elszertné menteni a pályát akkor csak nyomjon egy ENTER-t!\n" +
+					"Ha minden objektumot ki szeretne törölni a pályáról, akkor írja be hogy 'ures'\n" +
+					"Ha karaktert szeretne törölin akkor a kordináták után rakjon egy 't betűt' kettős ponttal elválasztva (pl: 2:3:t)\n" +
+					"Ha vissza szertene menni a menu akkro írja be hogy 'menu'\n" +
+					"Ha többetakran lerakni az adott falból akkor a kordináta után írjon egy égtáj kezdőbetűjét (pl: 2:3:n, 2:3:e, 2:3:s, 2:3:w)";
+
 
 		static void Main(string[] args)
 		{
-			menu();
+            Console.WriteLine("Válasszon nyelvet: magyar vagy angol: ");
+			string nyelv = Console.ReadLine();
+			menu(nyelv);
 		}
 
 		static char[,] palyaKeszites(int sorokSzama, int oszlopokSzama)
@@ -39,15 +47,10 @@ namespace MyApp
 				Kiirat(palya);
 
 
-				Console.ForegroundColor= ConsoleColor.DarkYellow;
-				Console.WriteLine("Ha elszertné menteni a pályát akkor csak nyomjon egy ENTER-t!");
-				Console.WriteLine("Ha minden objektumot ki szeretne törölni a pályáról, akkor írja be hogy 'ures'");
-				Console.WriteLine("Ha karaktert szeretne törölin akkor a kordináták után rakjon egy 't betűt' kettős ponttal elválasztva (pl: 2:3:t)");
-				Console.WriteLine("Ha vissza szertene menni a menu akkro írja be hogy 'menu'");
-				Console.WriteLine("Ha többetakran lerakni az adott falból akkor a kordináta után írjon egy égtáj kezdőbetűjét (pl: 2:3:n, 2:3:e, 2:3:s, 2:3:w)");
-
+				Console.ForegroundColor = ConsoleColor.DarkYellow;
+				Console.WriteLine(MAGYAR_SZOVEG);
 				Console.ForegroundColor = ConsoleColor.White;
-				Console.WriteLine("Adjon meg egy kordinátát ahova a falakat, vagy egy szobát szeretné rakni (pl: 2:3): ");
+				Console.WriteLine("Adjon meg egy kordinátát ahova a falakat, vagy szobákat szeretné rakni (pl: 2:3): ");
 				string bekeres = Console.ReadLine();
 
 
@@ -79,9 +82,6 @@ namespace MyApp
 
 				else if (bekeres.Contains(':'))
 				{
-
-
-
 					string[] valami = bekeres.Split(':');
 
 					int xKord = Convert.ToInt32(valami[0]);
@@ -168,15 +168,6 @@ namespace MyApp
 						}
 
 					}
-					else if (bekeres.Contains(':'))
-					{
-						if (bekeres.Contains('w') == false || bekeres.Contains('e') == false || bekeres.Contains('s') == false || bekeres.Contains('n') == false || bekeres.Contains('t') == false)
-						{
-							Console.WriteLine("Hiba");
-							Console.ReadKey();
-							Console.Clear();
-						}
-					}
 					else
 					{
 						Console.WriteLine();
@@ -196,11 +187,11 @@ namespace MyApp
 							palya[xKord - 1, yKord - 1] = lista[falSzam];
 						}
 					}
-				
+
 				}
 				else if (bekeres != "ures" || bekeres != "" || bekeres.Contains(':') == false)
 				{
-				
+
 					Console.WriteLine("Hiba");
 					Console.ReadKey();
 					Console.Clear();
@@ -239,31 +230,37 @@ namespace MyApp
 			}
 
 			Kiirat(palya);
-
-
 			return palya;
 		}
 
-		static void menu()
+		static void menu(string nyelvezet = "magyar")
 		{
-			
+			string menu_magyar = "1. pálya létrehozása\n" +
+				"2. pálya betöltése\n" +
+				"3. kilépés a programból\n" +
+				"\n" +
+				"Válasszon ki egy menü pontot";
 
-			List<char> falak = new List<char>() { '╬', '═', '╦', '╩', '║', '╣', '╠', '╗', '╝', '╚', '╔', '█', '▄', '♣', '♂', '♀', '♫', '☼', '↓', '→', '↑', '▼'};
 
-			Console.WriteLine("1. pálya létrehozása");
-			Console.WriteLine("2. pálya betöltése");
-			Console.WriteLine("3. kilépés a programból");
+
+			Console.Clear();
+			Console.WriteLine(menu_magyar);
+
+			List<char> falak = new List<char>() { '╬', '═', '╦', '╩', '║', '╣', '╠', '╗', '╝', '╚', '╔', '█', '▄', '♣', '♂', '♀', '♫', '☼', '↓', '→', '↑', '▼' };
+
 			Console.WriteLine();
-			Console.WriteLine("Válasszon ki egy menü pontot");
+
+
+		
 
 			int bekeres = Convert.ToInt32(Console.ReadLine());
 
-			
+
 
 			if (bekeres == 1)
 			{
-				Console.WriteLine("Adjon meg a mátrix méretét (pl: '2:3'): ");
-				
+				Console.WriteLine("Adja meg a mátrix méretét (pl: '2:3'): ");
+
 				string kordinata = Console.ReadLine();
 				string[] ok = kordinata.Split(":");
 
@@ -289,7 +286,7 @@ namespace MyApp
 			}
 
 		}
-		
+
 		static void Kiirat(char[,] palya)
 		{
 			for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
@@ -301,5 +298,7 @@ namespace MyApp
 				Console.WriteLine();
 			}
 		}
+
+
 	}
 }
