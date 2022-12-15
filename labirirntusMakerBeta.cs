@@ -2,13 +2,13 @@
 using System.IO;
 using System.Collections.Generic;
 
-namespace ConsoleApp1
+namespace MyApp
 {
 	class Program
 	{
 		const char JEL = '.';
 
-		
+
 
 
 		static void Main(string[] args)
@@ -37,29 +37,31 @@ namespace ConsoleApp1
 		static char[,] szerkeztes(char[,] palya, List<char> lista, string nyelvezet)
 		{
 			string visszaAd = "magyar";
-			string szoveg = "Ha elszertné menteni a pályát akkor csak nyomjon egy ENTER-t!\n" +
+			string szerkeztSzoveg1 = "Ha elszertné menteni a pályát akkor csak nyomjon egy ENTER-t!\n" +
 					"Ha minden objektumot ki szeretne törölni a pályáról, akkor írja be hogy 'ures'\n" +
 					"Ha karaktert szeretne törölin akkor a kordináták után rakjon egy 't betűt' kettős ponttal elválasztva (pl: 2:3:t)\n" +
 					"Ha vissza szertene menni a menu akkro írja be hogy 'menu'\n" +
 					"Ha többetakran lerakni az adott falból akkor a kordináta után írjon egy égtáj kezdőbetűjét (pl: 2:3:n, 2:3:e, 2:3:s, 2:3:w)";
-			string lerakSzoveg = "Mennyit szeretne lerakni: ";
+			string szerkeztSzoveg2 = "Mennyit szeretne lerakni: ";
 
-			string lerakSzoveg2 = "Adjon meg egy kordinátát ahova a falakat, vagy szobákat szeretné rakni (pl: 2:3): ";
-			string kerdes = "Melyik karaktert szeretné használni:";
+			string szerkeztSzoveg3 = "Adjon meg egy kordinátát ahova a falakat, vagy szobákat szeretné rakni (pl: 2:3): ";
+			string szerkeztSzoveg4 = "Melyik karaktert szeretné használni:";
+			string szerkeztSzoveg5 = "Nincs ilyen számú fal!";
 
 
 			if (nyelvezet == "angol")
-            {
+			{
 				visszaAd = "angol";
-				szoveg = "If you want to save the track just press ENTER!\n" +
+				szerkeztSzoveg1 = "If you want to save the track just press ENTER!\n" +
 					"If you want to delete all objects from the track, just type 'ures'\n" +
 					"If you want to delete a character, just put a 't' separated by a double dot after the coordinates (e.g.: 2:3:t)\n" +
 					"If you want to go back to the menu, type 'menu'\n" +
 					"If you want to unload more than one of the given wall, then after the cordinate, type the initial letter of a sky (e.g.: 2:3:n, 2:3:e, 2:3:s, 2:3:w)";
-				lerakSzoveg = "How much do you want to unload: ";
+				szerkeztSzoveg2 = "How much do you want to unload: ";
 
-				lerakSzoveg2 = "Give a cordon where you want to put the walls or rooms (e.g. 2:3):";
-				kerdes = "Which character would you like to use:";
+				szerkeztSzoveg3 = "Give a cordon where you want to put the walls or rooms (e.g. 2:3):";
+				szerkeztSzoveg4 = "Which character would you like to use:";
+				szerkeztSzoveg5 = "There is no such number of walls";
 			}
 
 			while (true)
@@ -70,15 +72,15 @@ namespace ConsoleApp1
 
 
 				Console.ForegroundColor = ConsoleColor.DarkYellow;
-				Console.WriteLine(szoveg);
+				Console.WriteLine(szerkeztSzoveg1);
 				Console.ForegroundColor = ConsoleColor.White;
-				Console.WriteLine(lerakSzoveg2);
+				Console.WriteLine(szerkeztSzoveg3);
 				string bekeres = Console.ReadLine();
 
 
 				if (bekeres == "")
 				{
-					mentes(palya);
+					mentes(palya, nyelvezet);
 
 					continue;
 				}
@@ -117,9 +119,9 @@ namespace ConsoleApp1
 
 					else if (bekeres.Contains('n'))
 					{
-						Console.WriteLine(lerakSzoveg);
+						Console.WriteLine(szerkeztSzoveg2);
 						int darab = Convert.ToInt32(Console.ReadLine());
-						Console.WriteLine(kerdes+" (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(szerkeztSzoveg4 + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falszam1 = Convert.ToInt32(Console.ReadLine());
 
 						for (int i = 0; i < darab; i++)
@@ -132,9 +134,9 @@ namespace ConsoleApp1
 
 					else if (bekeres.Contains('e'))
 					{
-						Console.WriteLine(lerakSzoveg);
+						Console.WriteLine(szerkeztSzoveg2);
 						int darab = Convert.ToInt32(Console.ReadLine());
-						Console.WriteLine(kerdes+" (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(szerkeztSzoveg4 + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falszam1 = Convert.ToInt32(Console.ReadLine());
 
 						for (int i = 0; i < darab; i++)
@@ -147,9 +149,9 @@ namespace ConsoleApp1
 
 					else if (bekeres.Contains('w'))
 					{
-						Console.WriteLine(lerakSzoveg);
+						Console.WriteLine(szerkeztSzoveg2);
 						int darab = Convert.ToInt32(Console.ReadLine());
-						Console.WriteLine(kerdes+" (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(szerkeztSzoveg4 + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falszam1 = Convert.ToInt32(Console.ReadLine());
 
 						for (int i = 0; i < darab; i++)
@@ -162,9 +164,9 @@ namespace ConsoleApp1
 
 					else if (bekeres.Contains('s'))
 					{
-						Console.WriteLine(lerakSzoveg);
+						Console.WriteLine(szerkeztSzoveg2);
 						int darab = Convert.ToInt32(Console.ReadLine());
-						Console.WriteLine(kerdes+" (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(szerkeztSzoveg4 + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falszam1 = Convert.ToInt32(Console.ReadLine());
 
 						for (int i = 0; i < darab; i++)
@@ -178,9 +180,9 @@ namespace ConsoleApp1
 
 					else if (bekeres.Contains('w'))
 					{
-						Console.WriteLine(lerakSzoveg);
+						Console.WriteLine(szerkeztSzoveg2);
 						int darab = Convert.ToInt32(Console.ReadLine());
-						Console.WriteLine(kerdes+" (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(szerkeztSzoveg4 + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falszam1 = Convert.ToInt32(Console.ReadLine());
 
 						for (int i = 0; i < darab; i++)
@@ -193,7 +195,7 @@ namespace ConsoleApp1
 					else
 					{
 						Console.WriteLine();
-						Console.WriteLine(kerdes+"(0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(szerkeztSzoveg4 + "(0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falSzam = Convert.ToInt32(Console.ReadLine());
 
 						Console.Clear();
@@ -201,7 +203,7 @@ namespace ConsoleApp1
 
 						if (falSzam < 0 || falSzam > lista.Count)
 						{
-							Console.WriteLine("Nincs ilyen számú fal");
+							Console.WriteLine(szerkeztSzoveg5);
 						}
 
 						else if (falSzam >= 0 && falSzam <= lista.Count)
@@ -222,9 +224,17 @@ namespace ConsoleApp1
 			//return palya; 
 		}
 
-		static void mentes(char[,] mentesPalya)
+		static void mentes(char[,] mentesPalya, string nyelvezet)
 		{
-			Console.WriteLine("Adja mege a fájl mentési nevét: ");
+
+			string mentesSzoveg = "Adja mege a fájl mentési nevét: ";
+
+			if (nyelvezet == "angol")
+			{
+				mentesSzoveg = "Enter the name of the file to save: ";
+			}
+
+			Console.WriteLine(mentesSzoveg);
 			string nev = Console.ReadLine();
 
 			string[] sorok = new string[mentesPalya.GetLength(0)];
@@ -267,7 +277,7 @@ namespace ConsoleApp1
 
 
 			if (nyelvezet == "angol")
-            {
+			{
 				menu = "1. Create map \n" +
 				"2. Load map \n" +
 				"3. Exit the program\n" +
