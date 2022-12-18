@@ -243,51 +243,62 @@ namespace MyApp
 
 		static void menu(string nyelvezet = "magyar")
 		{
-
-			string[] tomb = File.ReadAllLines($"{nyelvezet}.txt");
-
-			Console.Clear();
-			for (int i = 0; i < 5; i++)
+			while (true)
 			{
-				Console.WriteLine(tomb[i]);
+				Console.Clear();
+				string[] tomb = File.ReadAllLines($"{nyelvezet}.txt");
+				for (int i = 0; i < 5; i++)
+				{
+					Console.WriteLine(tomb[i]);
+				}
+
+				List<char> falak = new List<char>() { '╬', '═', '╦', '╩', '║', '╣', '╠', '╗', '╝', '╚', '╔', '█', '▄', '♣', '♂', '♀', '♫', '☼', '↓', '→', '↑', '▼' };
+
+				Console.WriteLine();
+
+
+
+
+				int bekeres = Convert.ToInt32(Console.ReadLine());
+				if (bekeres == 1)
+				{
+					Console.WriteLine(tomb[5]);
+
+					string kordinata = Console.ReadLine();
+					string[] ok = kordinata.Split(":");
+
+
+					int szam = Convert.ToInt32(ok[0]);
+					int szam2 = Convert.ToInt32(ok[1]);
+
+					szerkeztes(palyaKeszites(szam, szam2), falak, nyelvezet);
+
+				}
+
+
+				else if (bekeres == 2)
+				{
+					Console.WriteLine(tomb[6]);
+					string nev = Console.ReadLine();
+					szerkeztes(betoltes(nev), falak, nyelvezet);
+				}
+
+
+				else if (bekeres == 3)
+				{
+					Console.WriteLine("Válasszon nyelvet: magyar vagy angol: ");
+					string nyelvValtas = Console.ReadLine();
+					nyelvezet = nyelvValtas;
+					continue;
+				}
+
+				else if (bekeres == 4)
+				{
+					Environment.Exit(0);
+				}
 			}
 
-			List<char> falak = new List<char>() { '╬', '═', '╦', '╩', '║', '╣', '╠', '╗', '╝', '╚', '╔', '█', '▄', '♣', '♂', '♀', '♫', '☼', '↓', '→', '↑', '▼' };
-
-			Console.WriteLine();
-
-
-
-
-			int bekeres = Convert.ToInt32(Console.ReadLine());
-
-			if (bekeres == 1)
-			{
-				Console.WriteLine(tomb[5]);
-
-				string kordinata = Console.ReadLine();
-				string[] ok = kordinata.Split(":");
-
-
-				int szam = Convert.ToInt32(ok[0]);
-				int szam2 = Convert.ToInt32(ok[1]);
-
-				szerkeztes(palyaKeszites(szam, szam2), falak, nyelvezet);
-
-			}
-
-
-			else if (bekeres == 2)
-			{
-				Console.WriteLine(tomb[6]);
-				string nev = Console.ReadLine();
-				szerkeztes(betoltes(nev), falak, nyelvezet);
-			}
-
-			else if (bekeres == 3)
-			{
-				Environment.Exit(0);
-			}
+			
 
 		}
 

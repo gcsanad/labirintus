@@ -1,7 +1,7 @@
 1. Create map
 2. Load map
-3. Exit the program
-4. change language
+3. Change language 
+4. Exit the program
 Select a menu item
 Enter the size of the matrix (e.g. '2:3'):
 Enter the name of the saved map:

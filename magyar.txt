@@ -1,7 +1,7 @@
 1. Térkép létrehozása
 2. Térkép betöltése
-3. A programból való kilépés
-4. Nyelvváltás
+3. Nyelvváltás
+4. A programból való kilépés 
 Válasszon ki egy menüpontot
 Adja meg a mátrix méretét (pl. '2:3'):
 Adja meg a mentett térkép nevét:
