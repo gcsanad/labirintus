@@ -1,0 +1,17 @@
+1. Create map
+2. Load map
+3. Exit the program
+4. change language
+Select a menu item
+Enter the size of the matrix (e.g. '2:3'):
+Enter the name of the saved map:
+If you want to save the track just press ENTER!
+If you want to delete all objects from the track, just type 'ures'
+If you want to delete a character, just put a 't' separated by a double dot after the coordinates (e.g.: 2:3:t)
+If you want to go back to the menu, type 'menu'
+If you want to unload more than one of the given wall, then after the cordinate, type the initial letter of a sky (e.g.: 2:3:n, 2:3:e, 2:3:s, 2:3:w)
+How much do you want to unload:
+Give a cordon where you want to put the walls or rooms (e.g. 2:3):
+Which character would you like to use:
+There is no such number of walls
+Enter the name of the file to save: 
