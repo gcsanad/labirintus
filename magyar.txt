@@ -7,6 +7,7 @@ Adja meg a mátrix méretét (pl. '2:3'):
 Adja meg a mentett térkép nevét:
 Ha elszertné menteni a pályát akkor csak nyomjon egy ENTER-t!
 Ha minden objektumot ki szeretne törölni a pályáról, akkor írja be hogy 'ures'
+Ha nyelvet szeretne változtatni, akkor írja be hogy 'nyelv'
 Ha karaktert szeretne törölin akkor a kordináták után rakjon egy 't betűt' kettős ponttal elválasztva (pl: 2:3:t)
 Ha vissza szertene menni a menu akkro írja be hogy 'menu'
 Ha többetakran lerakni az adott falból akkor a kordináta után írjon egy égtáj kezdőbetűjét (pl: 2:3:n, 2:3:e,2:3:s,2:3:w)
@@ -14,4 +15,5 @@ Mennyit szeretne lerakni:
 Adjon meg egy kordinátát ahova a falakat, vagy szobákat szeretné rakni (pl: 2:3):
 Melyik karaktert szeretné használni:
 Nincs ilyen számú fal!
-Adja mege a fájl mentési nevét: 
+Adja mege a fájl mentési nevét:
+Válasszon nyelvet: magyar vagy angol: 

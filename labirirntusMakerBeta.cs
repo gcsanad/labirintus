@@ -33,20 +33,18 @@ namespace MyApp
 
 		static char[,] szerkeztes(char[,] palya, List<char> lista, string nyelvezet)
 		{
-			string visszaAd = nyelvezet;
-			
-
-			string[] tomb = File.ReadAllLines($"{nyelvezet}.txt");
 
 			while (true)
 			{
+				string visszaAd = nyelvezet;
+				string[] tomb = File.ReadAllLines($"{nyelvezet}.txt");
 				Console.Clear();
 
 				Kiirat(palya);
 
 
 				Console.ForegroundColor = ConsoleColor.DarkYellow;
-				for (int i = 0; i < 11; i++)
+				for (int i = 0; i < 12; i++)
 				{
 					if (i > 6)
 					{
@@ -55,7 +53,7 @@ namespace MyApp
 				}
 
 				Console.ForegroundColor = ConsoleColor.White;
-				Console.WriteLine(tomb[13]);
+				Console.WriteLine(tomb[14]);
 				string bekeres = Console.ReadLine();
 
 
@@ -70,6 +68,14 @@ namespace MyApp
 				{
 					Console.Clear();
 					menu(visszaAd);
+				}
+
+				else if (bekeres == "nyelv")
+				{
+					Console.WriteLine(tomb[tomb.Length-1]);
+					string nyelvValt = Console.ReadLine();
+					nyelvezet = nyelvValt;
+					continue;
 				}
 
 				else if (bekeres == "ures")
@@ -100,9 +106,9 @@ namespace MyApp
 
 					else if (bekeres.Contains('n'))
 					{
-						Console.WriteLine(tomb[12]);
+						Console.WriteLine(tomb[13]);
 						int darab = Convert.ToInt32(Console.ReadLine());
-						Console.WriteLine(tomb[14] + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(tomb[15] + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falszam1 = Convert.ToInt32(Console.ReadLine());
 
 						for (int i = 0; i < darab; i++)
@@ -115,9 +121,9 @@ namespace MyApp
 
 					else if (bekeres.Contains('e'))
 					{
-						Console.WriteLine(tomb[12]);
+						Console.WriteLine(tomb[13]);
 						int darab = Convert.ToInt32(Console.ReadLine());
-						Console.WriteLine(tomb[14] + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(tomb[15] + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falszam1 = Convert.ToInt32(Console.ReadLine());
 
 						for (int i = 0; i < darab; i++)
@@ -130,9 +136,9 @@ namespace MyApp
 
 					else if (bekeres.Contains('w'))
 					{
-						Console.WriteLine(tomb[12]);
+						Console.WriteLine(tomb[13]);
 						int darab = Convert.ToInt32(Console.ReadLine());
-						Console.WriteLine(tomb[14] + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(tomb[15] + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falszam1 = Convert.ToInt32(Console.ReadLine());
 
 						for (int i = 0; i < darab; i++)
@@ -145,9 +151,9 @@ namespace MyApp
 
 					else if (bekeres.Contains('s'))
 					{
-						Console.WriteLine(tomb[12]);
+						Console.WriteLine(tomb[13]);
 						int darab = Convert.ToInt32(Console.ReadLine());
-						Console.WriteLine(tomb[14] + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(tomb[15] + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falszam1 = Convert.ToInt32(Console.ReadLine());
 
 						for (int i = 0; i < darab; i++)
@@ -161,9 +167,9 @@ namespace MyApp
 
 					else if (bekeres.Contains('w'))
 					{
-						Console.WriteLine(tomb[12]);
+						Console.WriteLine(tomb[13]);
 						int darab = Convert.ToInt32(Console.ReadLine());
-						Console.WriteLine(tomb[14] + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(tomb[15] + " (0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falszam1 = Convert.ToInt32(Console.ReadLine());
 
 						for (int i = 0; i < darab; i++)
@@ -176,7 +182,7 @@ namespace MyApp
 					else
 					{
 						Console.WriteLine();
-						Console.WriteLine(tomb[14] + "(0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
+						Console.WriteLine(tomb[15] + "(0)'╬', (1)'═', (2)'╦', (3)'╩', (4)'║', (5)'╣', (6)'╠', (7)'╗', (8)'╝', (9)'╚', (10)'╔', (11)'█', (12)'▄',(13)'♣', (14)'♂', (15)'♀', (16)'♫', (17)'☼', (18)'↓', (19)'→', (20)'↑', (21)'▼'");
 						int falSzam = Convert.ToInt32(Console.ReadLine());
 
 						Console.Clear();
@@ -184,7 +190,7 @@ namespace MyApp
 
 						if (falSzam < 0 || falSzam > lista.Count)
 						{
-							Console.WriteLine(tomb[15]);
+							Console.WriteLine(tomb[16]);
 						}
 
 						else if (falSzam >= 0 && falSzam <= lista.Count)
@@ -210,7 +216,7 @@ namespace MyApp
 
 			string[] tomb = File.ReadAllLines($"{nyelvezet}.txt");
 
-			Console.WriteLine(tomb[tomb.Length-1]);
+			Console.WriteLine(tomb[16]);
 			string nev = Console.ReadLine();
 
 			string[] sorok = new string[mentesPalya.GetLength(0)];
@@ -313,6 +319,7 @@ namespace MyApp
 				Console.WriteLine();
 			}
 		}
+
 
 
 	}
