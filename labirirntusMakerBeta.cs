@@ -44,7 +44,7 @@ namespace MyApp
 
 
 				Console.ForegroundColor = ConsoleColor.DarkYellow;
-				for (int i = 0; i < 12; i++)
+				for (int i = 0; i < 13; i++)
 				{
 					if (i > 6)
 					{
@@ -59,7 +59,8 @@ namespace MyApp
 
 				if (bekeres == "")
 				{
-					mentes(palya, nyelvezet);
+
+					Ellenoriz(palya,lista,nyelvezet);
 
 					continue;
 				}
@@ -72,7 +73,7 @@ namespace MyApp
 
 				else if (bekeres == "nyelv")
 				{
-					Console.WriteLine(tomb[tomb.Length-1]);
+					Console.WriteLine(tomb[18]);
 					string nyelvValt = Console.ReadLine();
 					nyelvezet = nyelvValt;
 					continue;
@@ -216,7 +217,7 @@ namespace MyApp
 
 			string[] tomb = File.ReadAllLines($"{nyelvezet}.txt");
 
-			Console.WriteLine(tomb[16]);
+			Console.WriteLine(tomb[17]);
 			string nev = Console.ReadLine();
 
 			string[] sorok = new string[mentesPalya.GetLength(0)];
@@ -320,7 +321,42 @@ namespace MyApp
 			}
 		}
 
+		static void Ellenoriz(char[,] palya, List<char> lista, string nyelvezet)
+		{
+			string[] tomb = File.ReadAllLines($"{nyelvezet}.txt");
+			bool vanSzoba = false;
+			int szobaSzamlalo = 0;
 
+			for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
+			{
+				for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
+				{
+					if (palya[sorIndex,oszlopIndex] == '█')
+					{
+						szobaSzamlalo++;
+						vanSzoba = true;
+					}
+				}
+			}
+
+			if (vanSzoba)
+			{
+				Console.WriteLine(tomb[20]+ " {0}db",szobaSzamlalo);
+				mentes(palya, nyelvezet);
+			}
+
+			else
+			{
+				Console.WriteLine(tomb[19]);
+				string valasz = Console.ReadLine();
+
+				if (valasz == "igen")
+				{
+					mentes(palya, nyelvezet);
+				}
+			}
+
+		}
 
 	}
 }

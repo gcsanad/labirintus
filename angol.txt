@@ -16,4 +16,6 @@ Give a cordon where you want to put the walls or rooms (e.g. 2:3):
 Which character would you like to use:
 There is no such number of walls
 Enter the name of the file to save:
-Choose your language: English or Hungarian: 
+Choose your language: English or Hungarian:
+There is no room in the maze. Are you sure you want to save it? (yes/no)
+Number of rooms:

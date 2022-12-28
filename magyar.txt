@@ -16,4 +16,6 @@ Adjon meg egy kordinátát ahova a falakat, vagy szobákat szeretné rakni (pl: 
 Melyik karaktert szeretné használni:
 Nincs ilyen számú fal!
 Adja mege a fájl mentési nevét:
-Válasszon nyelvet: magyar vagy angol: 
+Válasszon nyelvet: magyar vagy angol:
+Nem található szoba a labirintusban. Biztos hogy el akarja menteni? (igen/nem)
+A szobák száma:
