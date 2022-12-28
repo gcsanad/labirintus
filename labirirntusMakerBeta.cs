@@ -339,7 +339,66 @@ namespace MyApp
 				}
 			}
 
-			if (vanSzoba)
+			bool vanKijaratBal= false;
+			bool vanKijaratJobb = false;
+			bool vanKijaratFent = false;
+			bool vanKijaratAlul = false;
+			for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
+			{
+				if (palya[sorIndex, 0] == lista[0] || palya[sorIndex, 0] == lista[1] || palya[sorIndex, 0] == lista[2] || palya[sorIndex, 0] == lista[3]
+					|| palya[sorIndex, 0] == lista[5] || palya[sorIndex, 0] == lista[7] || palya[sorIndex, 0] == lista[8])
+				{
+					vanKijaratBal = true;
+				}
+
+					if (palya[sorIndex, palya.GetLength(1) - 1] == lista[0] || palya[sorIndex, palya.GetLength(1) - 1] == lista[1]
+							|| palya[sorIndex, palya.GetLength(1) - 1] == lista[2] || palya[sorIndex, palya.GetLength(1) - 1] == lista[3]
+							|| palya[sorIndex, palya.GetLength(1) - 1] == lista[6] || palya[sorIndex, palya.GetLength(1) - 1] == lista[9]
+							|| palya[sorIndex, palya.GetLength(1) - 1] == lista[10])
+				{
+					vanKijaratJobb = true;
+				}
+
+			}
+			for (int oszlopIndexe = 1; oszlopIndexe < palya.GetLength(1) - 1; oszlopIndexe++)
+			{
+				if (palya[0, oszlopIndexe] == lista[0] || palya[0, oszlopIndexe] == lista[3] || palya[0, oszlopIndexe] == lista[4]
+					|| palya[0, oszlopIndexe] == lista[5] || palya[0, oszlopIndexe] == lista[6] || palya[0, oszlopIndexe] == lista[8] || palya[0, oszlopIndexe] == lista[9])
+				{
+					vanKijaratFent = true;
+				}
+
+				if (palya[palya.GetLength(0) - 1, oszlopIndexe] == lista[0] || palya[palya.GetLength(0) - 1, oszlopIndexe] == lista[2] 
+					|| palya[palya.GetLength(0) - 1, oszlopIndexe] == lista[4] || palya[palya.GetLength(0) - 1, oszlopIndexe] == lista[5]
+					|| palya[palya.GetLength(0) - 1, oszlopIndexe] == lista[6] || palya[palya.GetLength(0) - 1, oszlopIndexe] == lista[7] 
+					|| palya[palya.GetLength(0) - 1, oszlopIndexe] == lista[10])
+				{
+					vanKijaratAlul = true;
+				}
+
+			}
+
+			if (vanKijaratBal)
+			{
+				Console.WriteLine(tomb[21]);
+			}
+
+			if (vanKijaratJobb)
+			{
+				Console.WriteLine(tomb[22]);
+			}
+
+			if (vanKijaratFent)
+			{
+				Console.WriteLine(tomb[23]);
+			}
+
+			if (vanKijaratAlul)
+			{
+				Console.WriteLine(tomb[24]);
+			}
+
+			if (vanSzoba && vanKijaratAlul || vanSzoba && vanKijaratBal || vanSzoba && vanKijaratAlul || vanSzoba && vanKijaratFent || vanSzoba && vanKijaratAlul)
 			{
 				Console.WriteLine(tomb[20]+ " {0}db",szobaSzamlalo);
 				mentes(palya, nyelvezet);
@@ -355,6 +414,8 @@ namespace MyApp
 					mentes(palya, nyelvezet);
 				}
 			}
+
+			
 
 		}
 

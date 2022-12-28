@@ -17,5 +17,9 @@ Which character would you like to use:
 There is no such number of walls
 Enter the name of the file to save:
 Choose your language: English or Hungarian:
-There is no room in the maze. Are you sure you want to save it? (yes/no)
+There is no room or exit in the maze. Are you sure you want to save it? (yes/no)
 Number of rooms:
+The exit is on the left side of the labyrinth
+The exit is on the right side of the maze
+The exit is at the top of the maze
+The exit is at the bottom of the maze

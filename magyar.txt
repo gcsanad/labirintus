@@ -17,5 +17,9 @@ Melyik karaktert szeretné használni:
 Nincs ilyen számú fal!
 Adja mege a fájl mentési nevét:
 Válasszon nyelvet: magyar vagy angol:
-Nem található szoba a labirintusban. Biztos hogy el akarja menteni? (igen/nem)
+Nem található szoba vagy kijárat a labirintusban. Biztos hogy el akarja menteni? (igen/nem)
 A szobák száma:
+A kijárat a labirintus bal oldalán található
+A kijárat a labirintus jobb oldalán található
+A kijárat a labirintus tetején található
+A kijárat a labirintus alján található
