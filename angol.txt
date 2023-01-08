@@ -23,3 +23,4 @@ The exit is on the left side of the labyrinth
 The exit is on the right side of the maze
 The exit is at the top of the maze
 The exit is at the bottom of the maze
+Some walls are not accessible inside the maze

@@ -325,12 +325,24 @@ namespace MyApp
 		{
 			string[] tomb = File.ReadAllLines($"{nyelvezet}.txt");
 			bool vanSzoba = false;
+			bool elerhetetlenFal = false;
 			int szobaSzamlalo = 0;
 
 			for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
 			{
 				for (int oszlopIndex = 0; oszlopIndex < palya.GetLength(1); oszlopIndex++)
 				{
+					if (palya[sorIndex,oszlopIndex] != JEL && sorIndex > 1 && sorIndex < palya.GetLength(0)-1 && oszlopIndex > 1 && oszlopIndex < palya.GetLength(1)-1 )
+					{
+
+						if (palya[sorIndex+1,oszlopIndex]== JEL && palya[sorIndex-1 , oszlopIndex] == JEL && palya[sorIndex, oszlopIndex+1] == JEL 
+							&& palya[sorIndex, oszlopIndex-1] == JEL)
+						{
+							elerhetetlenFal = true;
+							Console.WriteLine(tomb[25]);
+						}
+
+					}
 					if (palya[sorIndex,oszlopIndex] == '█')
 					{
 						szobaSzamlalo++;
@@ -349,14 +361,18 @@ namespace MyApp
 					|| palya[sorIndex, 0] == lista[5] || palya[sorIndex, 0] == lista[7] || palya[sorIndex, 0] == lista[8])
 				{
 					vanKijaratBal = true;
+					Console.WriteLine(tomb[21]);
+					
 				}
 
-					if (palya[sorIndex, palya.GetLength(1) - 1] == lista[0] || palya[sorIndex, palya.GetLength(1) - 1] == lista[1]
-							|| palya[sorIndex, palya.GetLength(1) - 1] == lista[2] || palya[sorIndex, palya.GetLength(1) - 1] == lista[3]
-							|| palya[sorIndex, palya.GetLength(1) - 1] == lista[6] || palya[sorIndex, palya.GetLength(1) - 1] == lista[9]
-							|| palya[sorIndex, palya.GetLength(1) - 1] == lista[10])
+				if (palya[sorIndex, palya.GetLength(1) - 1] == lista[0] || palya[sorIndex, palya.GetLength(1) - 1] == lista[1]
+						|| palya[sorIndex, palya.GetLength(1) - 1] == lista[2] || palya[sorIndex, palya.GetLength(1) - 1] == lista[3]
+						|| palya[sorIndex, palya.GetLength(1) - 1] == lista[6] || palya[sorIndex, palya.GetLength(1) - 1] == lista[9]
+						|| palya[sorIndex, palya.GetLength(1) - 1] == lista[10])
 				{
 					vanKijaratJobb = true;
+					Console.WriteLine(tomb[22]);
+
 				}
 
 			}
@@ -366,6 +382,7 @@ namespace MyApp
 					|| palya[0, oszlopIndexe] == lista[5] || palya[0, oszlopIndexe] == lista[6] || palya[0, oszlopIndexe] == lista[8] || palya[0, oszlopIndexe] == lista[9])
 				{
 					vanKijaratFent = true;
+					Console.WriteLine(tomb[23]);
 				}
 
 				if (palya[palya.GetLength(0) - 1, oszlopIndexe] == lista[0] || palya[palya.GetLength(0) - 1, oszlopIndexe] == lista[2] 
@@ -374,31 +391,13 @@ namespace MyApp
 					|| palya[palya.GetLength(0) - 1, oszlopIndexe] == lista[10])
 				{
 					vanKijaratAlul = true;
+					Console.WriteLine(tomb[24]);
 				}
 
 			}
 
-			if (vanKijaratBal)
-			{
-				Console.WriteLine(tomb[21]);
-			}
-
-			if (vanKijaratJobb)
-			{
-				Console.WriteLine(tomb[22]);
-			}
-
-			if (vanKijaratFent)
-			{
-				Console.WriteLine(tomb[23]);
-			}
-
-			if (vanKijaratAlul)
-			{
-				Console.WriteLine(tomb[24]);
-			}
-
-			if (vanSzoba && vanKijaratAlul || vanSzoba && vanKijaratBal || vanSzoba && vanKijaratAlul || vanSzoba && vanKijaratFent || vanSzoba && vanKijaratAlul)
+			if (vanSzoba && vanKijaratAlul && elerhetetlenFal==false || vanSzoba && vanKijaratBal && elerhetetlenFal == false
+				|| vanSzoba && vanKijaratJobb && elerhetetlenFal == false || vanSzoba && vanKijaratFent && elerhetetlenFal == false)
 			{
 				Console.WriteLine(tomb[20]+ " {0}db",szobaSzamlalo);
 				mentes(palya, nyelvezet);
@@ -414,10 +413,8 @@ namespace MyApp
 					mentes(palya, nyelvezet);
 				}
 			}
-
-			
-
 		}
+
 
 	}
 }
