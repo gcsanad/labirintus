@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Drawing;
+
 
 namespace MyApp
 {
@@ -26,6 +28,8 @@ namespace MyApp
 					matrix[sorIndex, oszlopIndex] = JEL;
 				}
 			}
+
+
 
 			Kiirat(matrix);
 			return matrix;
@@ -59,7 +63,6 @@ namespace MyApp
 
 				if (bekeres == "")
 				{
-
 					Ellenoriz(palya,lista,nyelvezet);
 
 					continue;
@@ -272,11 +275,11 @@ namespace MyApp
 					Console.WriteLine(tomb[5]);
 
 					string kordinata = Console.ReadLine();
-					string[] ok = kordinata.Split(":");
+					string[] kordinataTomb = kordinata.Split(":");
 
 
-					int szam = Convert.ToInt32(ok[0]);
-					int szam2 = Convert.ToInt32(ok[1]);
+					int szam = Convert.ToInt32(kordinataTomb[0]);
+					int szam2 = Convert.ToInt32(kordinataTomb[1]);
 
 					szerkeztes(palyaKeszites(szam, szam2), falak, nyelvezet);
 
@@ -327,6 +330,17 @@ namespace MyApp
 			bool vanSzoba = false;
 			bool elerhetetlenFal = false;
 			int szobaSzamlalo = 0;
+
+			bool[,] ellenorzo = new bool[palya.GetLength(0), palya.GetLength(1)];
+
+			for (int i = 0; i < ellenorzo.GetLength(0); i++)
+			{
+				for (int j = 0; j < ellenorzo.GetLength(1); j++)
+				{
+					ellenorzo[i, j] = false;
+				}
+			}
+
 
 			for (int sorIndex = 0; sorIndex < palya.GetLength(0); sorIndex++)
 			{
@@ -414,7 +428,5 @@ namespace MyApp
 				}
 			}
 		}
-
-
 	}
 }
