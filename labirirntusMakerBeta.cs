@@ -12,7 +12,7 @@ namespace MyApp
 
 		static void Main(string[] args)
 		{
-			string[] tomb = File.ReadAllLines($"cim.txt");
+			string[] tomb = File.ReadAllLines("cim.txt");
 			foreach (var item in tomb)
 			{
 				Console.WriteLine(item);
