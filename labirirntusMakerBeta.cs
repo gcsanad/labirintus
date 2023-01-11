@@ -12,6 +12,12 @@ namespace MyApp
 
 		static void Main(string[] args)
 		{
+			string[] tomb = File.ReadAllLines($"cim.txt");
+			foreach (var item in tomb)
+			{
+				Console.WriteLine(item);
+			}
+			Console.WriteLine();
 			Console.WriteLine("Válasszon nyelvet: magyar vagy angol: ");
 			string nyelv = Console.ReadLine();
 			menu(nyelv);
@@ -215,7 +221,7 @@ namespace MyApp
 				else if (bekeres != "ures" || bekeres != "" || bekeres.Contains(':') == false)
 				{
 
-					Console.WriteLine("Hiba");
+					Console.WriteLine(tomb[28]);
 					Console.ReadKey();
 					Console.Clear();
 				}

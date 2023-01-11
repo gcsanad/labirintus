@@ -15,7 +15,7 @@ Mennyit szeretne lerakni:
 Adjon meg egy kordinátát ahova a falakat, vagy szobákat szeretné rakni (pl: 2:3):
 Melyik karaktert szeretné használni:
 Nincs ilyen számú fal!
-Adja mege a fájl mentési nevét:
+Adja meg a fájl mentési nevét:
 Válasszon nyelvet: magyar vagy angol:
 Nem található szoba vagy kijárat a labirintusban. Biztos hogy el akarja menteni? (igen/nem)
 A szobák száma:
@@ -26,3 +26,4 @@ A kijárat a labirintus alján található
 Néhány fal nem elérhető a labirintuson belül
 Nem megfelelően adta meg a labirintus méretét!
 A programban nincs ilyen nyelvezet!
+Ilyen parancs a programban nem létezik!
