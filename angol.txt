@@ -24,3 +24,5 @@ The exit is on the right side of the maze
 The exit is at the top of the maze
 The exit is at the bottom of the maze
 Some walls are not accessible inside the maze
+You did not correctly specify the size of the maze!
+No such language in the programme!
