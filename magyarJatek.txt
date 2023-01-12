@@ -1,0 +1,13 @@
+Nyomjon le egy billentyűt a folytatáshoz
+Pálya betöltése (l)
+Válassza ki a nyelvet: Magyar vagy Angol
+Kilépés (k)
+Írja ide a fájl nevét: 
+Eddig talált szobák száma:
+Merre mozog tovább (WASD): 
+Nincs ilyen nevű fájl!
+Köszönjük, hogy játszott a játékkal!
+Milyen néven mentené el a fájlt?
+Találtál egy szobát!
+Gratulálok, elérted a kijáratot!
+szobát találtál

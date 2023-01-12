@@ -1,0 +1,14 @@
+Press any key to continue
+Load in maze (l)
+Select language: English or Hungarian
+Exit (e)
+Enter the file name here: 
+Thank you for playing the game!
+Number of rooms found so far:
+Where to move next (WASD): 
+There is no file with this name!
+Thank you for playing the game!
+What name will you save the file under?
+You found a room!
+Congratulations, you have reached the exit!
+You found a room
