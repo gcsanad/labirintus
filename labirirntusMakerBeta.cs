@@ -34,20 +34,17 @@ namespace MyApp
 					matrix[sorIndex, oszlopIndex] = JEL;
 				}
 			}
-
-
-
 			Kiirat(matrix);
 			return matrix;
 		}
 
 		static char[,] szerkeztes(char[,] palya, List<char> lista, string nyelvezet)
 		{
-
 			while (true)
 			{
 				string visszaAd = nyelvezet;
 				string[] tomb = File.ReadAllLines($"{nyelvezet}.txt");
+
 				Console.Clear();
 
 				Kiirat(palya);
@@ -66,7 +63,6 @@ namespace MyApp
 				Console.WriteLine(tomb[14]);
 				string bekeres = Console.ReadLine();
 
-
 				if (bekeres == "")
 				{
 					Ellenoriz(palya,lista,nyelvezet);
@@ -83,7 +79,18 @@ namespace MyApp
 				else if (bekeres == "nyelv")
 				{
 					Console.WriteLine(tomb[18]);
+
 					string nyelvValt = Console.ReadLine();
+
+					if (nyelvValt == "Hungarian" || nyelvValt == "hungarian")
+					{
+						nyelvValt = "magyar";
+					}
+
+					if (nyelvValt == "English" || nyelvValt == "english")
+					{
+						nyelvValt = "angol";
+					}
 					nyelvezet = nyelvValt;
 					continue;
 				}
@@ -231,10 +238,6 @@ namespace MyApp
 
 		static void mentes(char[,] mentesPalya, string nyelvezet)
 		{
-
-
-
-
 			string[] tomb = File.ReadAllLines($"{nyelvezet}.txt");
 
 			Console.WriteLine(tomb[17]);
@@ -273,6 +276,17 @@ namespace MyApp
 			while (true)
 			{
 				Console.Clear();
+
+				if (nyelvezet == "Hungarian" || nyelvezet == "hungarian")
+				{
+					nyelvezet = "magyar";
+				}
+
+				if (nyelvezet == "English" || nyelvezet == "english")
+				{
+					nyelvezet = "angol";
+				}
+
 				string[] tomb = File.ReadAllLines($"{nyelvezet}.txt");
 
 				for (int i = 0; i < 5; i++)
@@ -455,5 +469,6 @@ namespace MyApp
 				}
 			}
 		}
+
 	}
 }
