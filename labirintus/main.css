@@ -1,0 +1,39 @@
+body{
+    background-color: rgb(50, 50, 50);
+}
+
+#main {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1cm;
+    background-color: 	rgb(148, 147, 147);
+    border: 2mm black solid;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#main img {
+    width: 500px;
+    border: 2px black solid;
+    border-radius: 10px;
+}
+
+#menusav {
+    text-align: right;
+    background-color: rgb(28, 13, 56);
+    height: 1cm;
+    margin-bottom: 30px;
+    border: 2px black solid;
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: grey;
+    text-shadow: 2px 2px black;
+    margin-right: 30px;
+}
+
+li {
+    text-align: left;
+}
