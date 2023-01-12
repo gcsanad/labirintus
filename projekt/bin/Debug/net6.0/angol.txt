@@ -1,0 +1,29 @@
+1. Create map
+2. Load map
+3. Change language 
+4. Exit the program
+Select a menu item
+Enter the size of the matrix (e.g. '2:3'):
+Enter the name of the saved map:
+If you want to save the map just press ENTER!
+If you want to delete all objects from the map, just type 'ures'
+To change the language, type 'nyelv'
+If you want to delete a character, just put a 't' separated by a double dot after the coordinates (e.g.: 2:3:t)
+If you want to go back to the menu, type 'menu'
+If you want to place more than one of the given wall, then after the coordinate, type the initial letter of a sky (e.g.: 2:3:n, 2:3:e, 2:3:s, 2:3:w)
+How much do you want to place:
+Give a coordinate where you want to put the walls or rooms (e.g. 2:3):
+Which character would you like to use:
+There is no wall assigned to that number
+Enter the name of the file to save:
+Choose your language: English or Hungarian:
+There is no room or exit in the maze. Are you sure you want to save it? (yes/no)
+Number of rooms:
+The exit is on the left side of the labyrinth
+The exit is on the right side of the maze
+The exit is at the top of the maze
+The exit is at the bottom of the maze
+Some walls are not accessible inside the maze
+You did not correctly specify the size of the maze!
+No such language in the programme!
+No such command exists in the program!
