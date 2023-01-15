@@ -1,0 +1,88 @@
+#footer {
+    background-color: black;
+    color: white;
+    height: 5cm;
+    text-align: center;
+    font-size: small;
+}
+
+#elerhetosegek {
+    margin-left: 80%;
+}
+
+body{
+    background-color: rgb(50, 50, 50);
+    font-size: large;
+    line-height: 7mm;
+}
+
+#jatek {
+    height: 25cm;
+}
+
+#szerkezto {
+    height: 30cm;
+}
+
+.main {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1cm;
+    background-color: 	rgb(148, 147, 147);
+    border: 2mm black solid;
+    border-radius: 10px;
+}
+
+.main img {
+    border: 2px black solid;
+    border-radius: 10px;
+}
+
+#menusav {
+    text-align: center;
+    background-color: rgb(28, 13, 56);
+    height: 1cm;
+    width: 100%;
+    margin-bottom: 30px;
+    border: 2px black solid;
+    position: fixed;
+    margin-top: 0cm;
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: grey;
+    text-shadow: 2px 2px black;
+    margin-right: 30px;
+    margin-top: 0cm;
+}
+
+.kepek {
+    float: right;
+}
+
+.utmutato {
+    margin-bottom: 1cm;
+}
+
+p {
+    margin-left: 2cm;
+    width: 50%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2cm;
+}
+
+h3 {
+    margin-bottom: 1cm;
+    margin-left: 1cm;
+}
+
+h1 {
+    text-shadow: 2px 2px black;
+    text-align: center;
+    margin-bottom: 2cm;
+}
