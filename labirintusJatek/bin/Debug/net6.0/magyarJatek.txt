@@ -1,0 +1,11 @@
+tolt=Pálya betöltése (t)
+kilep=Kilépés (k)
+beker=Írja ide a fájl nevét (pl.:proba.txt): 
+felfedezett=Eddig talált szobák száma:
+merre=Merre mozog tovább (WASD): 
+error=Nincs ilyen nevű fájl!
+koszones=Köszönjük, hogy játszott a játékkal!
+mentes=Milyen néven mentené el a fájlt?
+talalt=Találtál egy szobát!
+vege=Gratulálok, elérted a kijáratot!
+vegetalalt=szobát találtál!

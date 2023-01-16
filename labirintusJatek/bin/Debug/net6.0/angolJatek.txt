@@ -1,0 +1,11 @@
+tolt=Load in maze (l)
+kilep=Exit (e)
+beker=Enter the file name here (e.g.: proba.txt): 
+koszones=Thank you for playing the game!
+felfedezett=Number of rooms found so far:
+merre=Where to move next (WASD): 
+error=There is no file with this name!
+mentes=What name will you save the file under?
+talalt=You found a room!
+vege=Congratulations, you have found all the rooms!
+vegetalalt=rooms have been found!
